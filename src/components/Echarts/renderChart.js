@@ -7,7 +7,7 @@ export default function renderChart(props) {
   return `
     document.getElementById('main').style.height = "${height}";
     document.getElementById('main').style.width = "${width}";
-    var myChart = echarts.init(document.getElementById('main', 'synaptic'));
+    var myChart = echarts.init(document.getElementById('main', ${props.theme || {}}));
     myChart.setOption(${toString(props.option)});
     window.document.addEventListener('message', function(e) {
       var option = JSON.parse(e.data);
